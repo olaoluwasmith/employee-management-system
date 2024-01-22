@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+</head>
+<body>
+    <h1 th:text="${info}"></h1>
+
+    <a th:href="@{/employee/create}">Add a New Employee</a>
+    <a th:href="@{/employee/list}">List All Employees</a>
+</body>
+</html>
