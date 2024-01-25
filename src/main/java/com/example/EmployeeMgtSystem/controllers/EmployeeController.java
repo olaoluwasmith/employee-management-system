@@ -27,14 +27,14 @@ public class EmployeeController {
         modelAndView.addObject("info", info);
         return modelAndView;
     }
-
+// creating a link to the home page
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("employee/create");
         return modelAndView;
     }
-
+// Showing the list of every employee in the organisation
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
@@ -44,19 +44,22 @@ public class EmployeeController {
         modelAndView.addObject("employees", employeeList);
         return modelAndView;
     }
-
+// asking the controller to create communicate to the service to create a new employee instanced. I added tewo set of variables department and salary
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(
             @RequestParam(value = "name") String name,
             @RequestParam(value = "age") Integer age,
             @RequestParam(value = "emailAddress") String emailAddress,
             @RequestParam(value = "homeAddress") String homeAddress,
-            @RequestParam(value = "phoneNumber") String phoneNumber
+            @RequestParam(value = "phoneNumber") String phoneNumber,
+            @RequestParam(value = "department") String department,
+            @RequestParam(value = "salary") double salary
     ) {
-        employeeService.createEmployee(name, age, emailAddress, homeAddress, phoneNumber);
+        employeeService.createEmployee(name, age, emailAddress,
+                homeAddress, phoneNumber, department, salary);
         return list();
     }
-
+// A link that take you to the information of a particular employee
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public ModelAndView view(@RequestParam(value = "id") long id) {
         Employee employee = employeeService.getEmployee(id);
@@ -65,7 +68,7 @@ public class EmployeeController {
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
-
+// A link to the page where employee information can be edited
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable(value = "id") long id) {
         Employee employee = employeeService.getEmployee(id);
@@ -74,7 +77,7 @@ public class EmployeeController {
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
-
+// A link to update the information of an employee
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public ModelAndView update(Employee employee,
                                @PathVariable(value = "id") long id) {

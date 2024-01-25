@@ -10,7 +10,10 @@ public interface EmployeeService {
             Integer age,
             String emailAddress,
             String homeAddress,
-            String phoneNumber);
+            String phoneNumber,
+            String department,
+            double salary);
+
     public List<Employee> getAllEmployee();
     Employee getEmployee(long id);
     public void updateEmployee(Employee employee);

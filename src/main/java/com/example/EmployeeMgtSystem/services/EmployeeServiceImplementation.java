@@ -19,13 +19,17 @@ public class EmployeeServiceImplementation implements EmployeeService {
             Integer age,
             String emailAddress,
             String homeAddress,
-            String phoneNumber) {
+            String phoneNumber,
+            String department,
+            double salary) {
         Employee employee = new Employee();
         employee.setName(name);
         employee.setAge(age);
         employee.setEmailAddress(emailAddress);
         employee.setHomeAddress(homeAddress);
         employee.setPhoneNumber(phoneNumber);
+        employee.setSalary(salary);
+        employee.setDepartment(department);
         employeeRepository.save(employee);
 
     }
