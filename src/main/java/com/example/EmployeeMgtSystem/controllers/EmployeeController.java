@@ -31,7 +31,7 @@ public class EmployeeController {
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("employee/create");
+        modelAndView.setViewName("old_create");
         return modelAndView;
     }
 
@@ -61,7 +61,7 @@ public class EmployeeController {
     public ModelAndView view(@RequestParam(value = "id") long id) {
         Employee employee = employeeService.getEmployee(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("employee/view");
+        modelAndView.setViewName("old_view");
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
@@ -70,7 +70,7 @@ public class EmployeeController {
     public ModelAndView edit(@PathVariable(value = "id") long id) {
         Employee employee = employeeService.getEmployee(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("employee/edit");
+        modelAndView.setViewName("old_edit");
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
