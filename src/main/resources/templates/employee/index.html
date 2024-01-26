@@ -4,57 +4,85 @@
     <meta charset="UTF-8">
     <title>Employee Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../static/css/landing.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/landing.css}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding-top: 56px; /* Adjusted for Bootstrap navbar */
+        }
 
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-
-    <!--<a th:href="@{/employee/create}">Add a New Employee</a>
-    <a th:href="@{/employee/list}">List All Employees</a>-->
-
-    <header >
-        <div id="navbar">
-            <div id="logo">
-                <b><h4>Employee Management</h4></b>
-            </div>
-            <div id="nav-items">
-
-                <p><a href="">Home</a></p>
-                <p>Register</p>
-                <p>Login</p>
-
-
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/employee}">Employee Management</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/employee}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/employee/create}">Add Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/employee/list}">Dashboard</a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </div>
+</nav>
 
-
-    <section class="bground-img" id = "header_background">
-        <div class="main-element">
-            <div class="firstelem">
-                <h2>
-                    <strong>Welcome to <span>Employee Application</span></strong>
-                </h2>
-            </div>
-            <div class="mainelementword">
-                <p>You can create employees, delete, edit and list all employees here</p>
-            </div>
-
-            <div class="butn">
-                <button class="btn btn-primary"> Get started </button>
-            </div>
+<header>
+    <div id="navbar">
+        <div id="logo">
+            <b><h4>Employee Management System</h4></b>
         </div>
-    </section>
+<!--        <div id="nav-items">-->
+<!--            <p><a href="">Home</a></p>-->
+<!--            <p>Register</p>-->
+<!--            <p>Login</p>-->
+<!--        </div>-->
+    </div>
+</header>
 
-
-    <footer>
-        <div class="copyright">
-            &copy; Copyright <strong><span>Employee Management</span></strong>. All Rights Reserved
+<section class="bground-img" id="header_background">
+    <div class="main-element">
+        <div class="firstelem">
+            <h2>
+                <strong>Welcome to <span>Employee Management System Application</span></strong>
+            </h2>
         </div>
-    </footer>
+        <div class="mainelementword">
+            <p>You can create employees, delete, edit and list all employees here...</p>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <div class="butn">
+            <button class="btn btn-primary"> Get started </button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="copyright">
+        &copy; Copyright <strong><span>Employee Management</span></strong>. All Rights Reserved
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
