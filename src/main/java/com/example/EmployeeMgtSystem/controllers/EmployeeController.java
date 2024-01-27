@@ -61,7 +61,7 @@ public class EmployeeController {
 //        ModelAndView modelAndView = new ModelAndView();
 //        modelAndView.addObject("employees", "Hello");
 //        modelAndView.setViewName("employee/dashboard");
-        return null;
+        return list();
     }
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)
@@ -87,7 +87,7 @@ public class EmployeeController {
                                @PathVariable(value = "id") long id) {
         employee.setId(id);
         employeeService.updateEmployee(employee);
-        return null;
+        return list();
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

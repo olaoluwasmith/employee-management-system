@@ -29,7 +29,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/employee}">Employee Management</a>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav d-flex">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/employee}">Home</a>
                 </li>
@@ -46,7 +46,7 @@
 
 <header>
     <div id="navbar">
-        <div id="logo">
+        <div id="logo"class="p-2">
             <b><h4>Employee Management System</h4></b>
         </div>
 <!--        <div id="nav-items">-->
@@ -60,23 +60,23 @@
 <section class="bground-img" id="header_background">
     <div class="main-element">
         <div class="firstelem">
-            <h2>
+            <h1>
                 <strong>Welcome to <span>Employee Management System Application</span></strong>
-            </h2>
+            </h1>
         </div>
         <div class="mainelementword">
             <p>You can create employees, delete, edit and list all employees here...</p>
         </div>
 
         <div class="butn">
-            <button class="btn btn-primary"> Get started </button>
+            <a class="btn btn-primary btn-lg" th:href="@{/employee/create}">Get Started</a>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="copyright">
-        &copy; Copyright <strong><span>Employee Management</span></strong>. All Rights Reserved
+    <div class="copyright p-4">
+        Copyright &copy; <strong><span>Employee Management</span></strong>. All Rights Reserved
     </div>
 </footer>
 

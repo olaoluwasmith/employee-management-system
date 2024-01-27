@@ -4,41 +4,89 @@
     <meta charset="UTF-8">
     <title>List | Staff</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/landing.css}">
 </head>
 <body>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        padding-top: 56px; /* Adjusted for Bootstrap navbar */
+    }
+
+    footer {
+<!--        position: fixed;-->
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/employee}">Employee Management</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/employee}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/employee/create}">Add Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/employee/list}">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container mt-4">
     <h2><span th:text="${employee.name}"></span>'s Details</h2>
     <hr>
-    <div class="mt-5">
-        <h4>
-            <strong>ID:</strong> <span th:text="${employee.id}"></span>
-        </h4><br>
-        <h4>
-            <strong>Full Name:</strong> <span th:text="${employee.name}"></span>
-        </h4><br>
-        <h4>
-            <strong>Age:</strong> <span th:text="${employee.age}"></span>
-        </h4><br>
-        <h4>
-            <strong>Email Address:</strong> <span th:text="${employee.emailAddress}"></span>
-        </h4><br>
-        <h4>
-            <strong>Home Address:</strong> <span th:text="${employee.homeAddress}"></span>
-        </h4><br>
-        <h4>
-            <strong>Phone Number:</strong> <span th:text="${employee.phoneNumber}"></span>
-        </h4><br>
-        <h4>
-            <strong>Department:</strong> <span th:text="${employee.department}"></span>
-        </h4><br>
-        <h4>
-            <strong>Salary:</strong> <span th:text="${employee.salary}"></span>
-        </h4><br>
-        <h4>
-            <strong>Gender:</strong> <span th:text="${employee.gender}"></span>
-        </h4>
-        <hr>
+    <div class="card text-white bg-secondary mb-3" style="min-width: 18rem; mt-5">
+        <div class="card-body">
+            <h5>
+                <strong>Employee ID:</strong> <span th:text="${employee.id}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Full Name:</strong> <span th:text="${employee.name}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Age:</strong> <span th:text="${employee.age}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Email Address:</strong> <span th:text="${employee.emailAddress}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Home Address:</strong> <span th:text="${employee.homeAddress}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Phone Number:</strong> <span th:text="${employee.phoneNumber}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Department:</strong> <span th:text="${employee.department}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Salary:</strong> $<span th:text="${employee.salary}"></span>
+            </h5>
+            <hr><br>
+            <h5>
+                <strong>Gender:</strong> <span th:text="${employee.gender}"></span>
+            </h5>
+        </div>
     </div>
 </div>
+
+<footer>
+    <div class="copyright p-4 my-auto text-center">
+        Copyright &copy; <strong><span>Employee Management</span></strong>. All Rights Reserved
+    </div>
+</footer>
 </body>
 </html>

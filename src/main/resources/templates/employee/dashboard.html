@@ -29,6 +29,26 @@
   </head>
 
   <body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/employee}">Employee Management</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav d-flex">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create}">Add Employee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/list}">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
@@ -52,7 +72,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" th:href="@{/employee}">
+          <a class="nav-link" th:href="@{/employee/list}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -282,9 +302,11 @@
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Group 6</span>
+
+            <div class="copyright text-center my-auto p-4">
+              Copyright &copy; <strong><span>Employee Management</span></strong>. All Rights Reserved
             </div>
+
           </div>
         </footer>
         <!-- End of Footer -->
