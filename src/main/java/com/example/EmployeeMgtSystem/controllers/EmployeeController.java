@@ -35,10 +35,16 @@ public class EmployeeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
+<<<<<<< HEAD
         List<Employee> employeeList = employeeService.getAllEmployees();
+=======
+
+        List<Employee> employeeList = employeeService.getAllEmployees();
+        modelAndView.setViewName("employee/dashboard");
+>>>>>>> 3c0bbfea97887feabd0f01f78f4c7f8a68302c54
         modelAndView.addObject("employees", employeeList);
         modelAndView.setViewName("employee/dashboard");
         return modelAndView;
@@ -59,9 +65,15 @@ public class EmployeeController {
     ) {
         employeeService.createEmployee(name, age, emailAddress, homeAddress, phoneNumber, department, salary, gender, tax, bonus);
 //        ModelAndView modelAndView = new ModelAndView();
+<<<<<<< HEAD
 //        modelAndView.addObject("employees", "Hello");
 //        modelAndView.setViewName("employee/dashboard");
         return null;
+=======
+//        modelAndView.addObject("employees",employeeService.createEmployee(name, age, emailAddress, homeAddress, phoneNumber, department, salary, gender, tax, bonus); );
+//        modelAndView.setViewName("employee/dashboard");
+        return list();
+>>>>>>> 3c0bbfea97887feabd0f01f78f4c7f8a68302c54
     }
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)
