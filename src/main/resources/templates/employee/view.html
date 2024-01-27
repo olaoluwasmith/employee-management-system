@@ -1,122 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Information List</title>
-    <link rel="stylesheet" href="../../static/css/employee.dashboard.css">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #dee2e6;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f8f9fa;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 5px;
-        }
-
-        button {
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>List | Staff</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-
 <body>
-
-<div class="container">
-    <h2>Employee Information</h2>
-
-    <button class="btn btn-primary" onclick="addNewUser()">Add New Employee</button>
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Employee ID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>Home Address</th>
-                <th>Phone Number</th>
-                <th>Department</th>
-                <th>Role</th>
-                <th>Gender</th>
-                <th>Salary</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <tr>
-                <td>12345</td>
-                <td>John Doe</td>
-                <td>30</td>
-                <td>john.doe@example.com</td>
-                <td>123 Main St</td>
-                <td>(555) 123-4567</td>
-                <td>IT</td>
-                <td>Developer</td>
-                <td>Male</td>
-                <td>$60,000</td>
-                <td class="action-buttons">
-                    <button class="btn btn-sm btn-warning" onclick="viewRow(this)">View</button>
-                    <button class="btn btn-sm btn-warning" onclick="editRow(this)">Edit</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteRow(this)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container mt-4">
+    <h2><span th:text="${employee.name}"></span>'s Details</h2>
+    <hr>
+    <div class="mt-5">
+        <h4>
+            <strong>ID:</strong> <span th:text="${employee.id}"></span>
+        </h4><br>
+        <h4>
+            <strong>Full Name:</strong> <span th:text="${employee.name}"></span>
+        </h4><br>
+        <h4>
+            <strong>Age:</strong> <span th:text="${employee.age}"></span>
+        </h4><br>
+        <h4>
+            <strong>Email Address:</strong> <span th:text="${employee.emailAddress}"></span>
+        </h4><br>
+        <h4>
+            <strong>Home Address:</strong> <span th:text="${employee.homeAddress}"></span>
+        </h4><br>
+        <h4>
+            <strong>Phone Number:</strong> <span th:text="${employee.phoneNumber}"></span>
+        </h4><br>
+        <h4>
+            <strong>Department:</strong> <span th:text="${employee.department}"></span>
+        </h4><br>
+        <h4>
+            <strong>Salary:</strong> <span th:text="${employee.salary}"></span>
+        </h4><br>
+        <h4>
+            <strong>Gender:</strong> <span th:text="${employee.gender}"></span>
+        </h4>
+        <hr>
+    </div>
 </div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    function viewUser() {
-                
-    }
-    function addNewUser() {
-                alert("Add New User clicked");
-    }
-
-    function editRow(button) {
-    
-        alert("Edit clicked for row: " + button.closest("tr").rowIndex);
-    }
-
-    function deleteRow(button) {
-        
-        var confirmation = confirm("Are you sure you want to delete this row?");
-        if (confirmation) {
-            button.closest("tr").remove();
-        }
-    }
-</script>
-
 </body>
 </html>

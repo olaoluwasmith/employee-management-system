@@ -31,17 +31,16 @@ public class EmployeeController {
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("old_create");
+        modelAndView.setViewName("employee/create");
         return modelAndView;
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
-
-        List<Employee> employeeList = employeeService.getAllEmployee();
-        modelAndView.setViewName("employee/list");
+        List<Employee> employeeList = employeeService.getAllEmployees();
         modelAndView.addObject("employees", employeeList);
+        modelAndView.setViewName("employee/dashboard");
         return modelAndView;
     }
 
@@ -51,17 +50,25 @@ public class EmployeeController {
             @RequestParam(value = "age") Integer age,
             @RequestParam(value = "emailAddress") String emailAddress,
             @RequestParam(value = "homeAddress") String homeAddress,
-            @RequestParam(value = "phoneNumber") String phoneNumber
+            @RequestParam(value = "phoneNumber") String phoneNumber,
+            @RequestParam(value = "department") String department,
+            @RequestParam(value = "salary") Double salary,
+            @RequestParam(value = "gender") String gender,
+            @RequestParam(value = "tax") Double tax,
+            @RequestParam(value = "bonus") Double bonus
     ) {
-        employeeService.createEmployee(name, age, emailAddress, homeAddress, phoneNumber);
-        return list();
+        employeeService.createEmployee(name, age, emailAddress, homeAddress, phoneNumber, department, salary, gender, tax, bonus);
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("employees", "Hello");
+//        modelAndView.setViewName("employee/dashboard");
+        return null;
     }
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public ModelAndView view(@RequestParam(value = "id") long id) {
         Employee employee = employeeService.getEmployee(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("old_view");
+        modelAndView.setViewName("employee/view");
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
@@ -70,7 +77,7 @@ public class EmployeeController {
     public ModelAndView edit(@PathVariable(value = "id") long id) {
         Employee employee = employeeService.getEmployee(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("old_edit");
+        modelAndView.setViewName("employee/edit");
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
@@ -80,7 +87,7 @@ public class EmployeeController {
                                @PathVariable(value = "id") long id) {
         employee.setId(id);
         employeeService.updateEmployee(employee);
-        return list();
+        return null;
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

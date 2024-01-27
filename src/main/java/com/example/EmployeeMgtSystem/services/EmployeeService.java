@@ -5,14 +5,23 @@ import com.example.EmployeeMgtSystem.entity.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    public void createEmployee(
+    void createEmployee(
             String name,
             Integer age,
             String emailAddress,
             String homeAddress,
-            String phoneNumber);
-    public List<Employee> getAllEmployee();
+            String phoneNumber,
+            String department,
+            Double salary,
+            String gender,
+            Double tax,
+            Double bonus);
+
+    List<Employee> getAllEmployees();
+
     Employee getEmployee(long id);
-    public void updateEmployee(Employee employee);
-    public void deleteEmployee(long id);
+
+    void updateEmployee(Employee employee);
+
+    void deleteEmployee(long id);
 }

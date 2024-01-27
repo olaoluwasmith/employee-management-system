@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,14 +11,19 @@
     <meta name="author" content="" />
 
     <title>Employee Management</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/landing.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/employee.dashboard.css}">
 
 
-    <link href="../../static/css/employee.dashboard.css" rel="stylesheet" />
+<!--    <link href="../../static/css/employee.dashboard.css" rel="stylesheet" />-->
 
     <script src="https://kit.fontawesome.com/8257a48ca7.js" crossorigin="anonymous"></script>
   </head>
@@ -47,7 +52,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="dashboard.html">
+          <a class="nav-link" th:href="@{/employee}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -58,26 +63,20 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-          <a class="nav-link" href="create.html">
+          <a class="nav-link" th:href="@{/employee/create}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Create</span></a
           >
         </li>
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
-          <a class="nav-link" href="payroll.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Payroll</span></a
-          >
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Logout</span></a
-          >
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">-->
+<!--            <i class="fas fa-fw fa-table"></i>-->
+<!--            <span>Logout</span></a-->
+<!--          >-->
+<!--        </li>-->
 
         <!-- Sidebar Message -->
         <div class="sidebar-card d-none d-lg-flex"></div>
@@ -110,7 +109,7 @@
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
               <h1 class="h3 mb-0 text-gray-800">Analytics</h1>
-          
+
             </div>
 
             <!-- Content Row -->
@@ -238,60 +237,12 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <!-- <table
-                    class="table table-bordered"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Email</th>
-                        <th>State</th>
-                        <th>Phone</th>
-                        <th>Dept</th>
-                        <th>Role</th>
-                        <th>Gender</th>
-                        <th>Salary</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <tr>
-                        <td>01</td>
-                        <td>Oyinlola</td>
-                        <td>15</td>
-                        <td>oyinlola@gmail.com</td>
-                        <td>Lagos</td>
-                        <td>08120330676</td>
-                        <td>Tech</td>
-                        <td>Engineer</td>
-                        <td>Male</td>
-                        <td>500,000</td>
-                        <td>
-                            <span class="action-buttons">
-                            <button class="btn btn-primary btn-xs mb-1">Create</button>
-                            <button class="btn btn-warning btn-xs mb-1">View</button>
-                            <button class="btn btn-danger btn-xs mb-1">Delete</button>
-                        </span>
-                        </td>
-                      </tr>
-                     
-                    </tbody>
-                  </table> -->
-                
-                  
     <table class="table table-bordered">
       <thead>
           <tr>
               <th>Employee ID</th>
               <th>Name</th>
               <th>Department</th>
-              <th>Role</th>
               <th>Bonuses</th>
               <th>Tax</th>
               <th>Monthly Salary</th>
@@ -299,20 +250,23 @@
           </tr>
       </thead>
       <tbody>
-          
-          <tr>
-              <td>12345</td>
-              <td>John Doe</td>
-              <td>IT</td>
-              <td>Developer</td>
-              <td>$2000</td>
-              <td>$5000</td>
-              <td>$60,000</td>
-              <td class="action-buttons">
 
-                  <button class="btn btn-sm btn-warning" onclick="editRow(this)">View</button>
-                  <button class="btn btn-sm btn-warning" onclick="editRow(this)">Edit</button>
-                  <button class="btn btn-sm btn-danger" onclick="deleteRow(this)">Delete</button>
+          <tr th:each="employee : ${employees}">
+              <td th:text="${employee.id}">1</td>
+              <td th:text="${employee.name}">Adebisi</td>
+              <td th:text="${employee.department}">Data</td>
+              <td th:text="${employee.bonus}">555</td>
+              <td th:text="${employee.tax}">777</td>
+              <td th:text="${employee.salary}">8888</td>
+<!--              <td class="action-buttons">-->
+
+<!--                  <button class="btn btn-sm btn-warning" th:href="@{/employee/view(id=${employee.id})}">View</button>-->
+<!--                  <button class="btn btn-sm btn-warning" th:href="@{/employee/edit/{id}(id=${employee.id})}">Edit</button>-->
+<!--                  <button class="btn btn-sm btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Delete</button>-->
+<!--              </td>-->
+              <td><a class="btn btn-sm btn-warning" th:href="@{/employee/view(id=${employee.id})}">View Details</a>
+                <a class="btn btn-sm btn-warning" th:href="@{/employee/edit/{id}(id=${employee.id})}">Edit</a>
+                <a class="btn btn-sm btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Delete</a>
               </td>
           </tr>
       </tbody>
