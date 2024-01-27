@@ -58,12 +58,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     @Override
     public void updateEmployee(Employee employee) {
-        // Check if the employee exists before updating
-        if (employeeRepository.existsById(employee.getId())) {
-            employeeRepository.save(employee);
-        } else {
-            throw new IllegalArgumentException("Employee not found");
-        }
+        employeeRepository.save(employee);
     }
 
     @Override
