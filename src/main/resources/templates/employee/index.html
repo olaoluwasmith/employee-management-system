@@ -10,7 +10,6 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            padding-top: 56px; /* Adjusted for Bootstrap navbar */
         }
 
         footer {
@@ -20,15 +19,19 @@
             text-align: center;
             padding: 10px;
         }
+
+        #navbar {
+            opacity: 0.9;
+        }
     </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/employee}">Employee Management</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-collapse" id="navbarNav">
             <ul class="navbar-nav d-flex">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/employee}">Home</a>
@@ -54,6 +57,13 @@
 <!--            <p>Register</p>-->
 <!--            <p>Login</p>-->
 <!--        </div>-->
+        <marquee behavior="" direction="left">
+            New incentives could boost satisfaction with in-person work, but few employers are making changes.
+            Gaza health officials say they lost the ability to count dead as Israeli offensive intensifies.
+            Amazon ‘blocks promotions’ for staff who do not return to office.
+            Disney World government will give employees stipend after backlash for taking away park passes.
+
+        </marquee>
     </div>
 </header>
 
