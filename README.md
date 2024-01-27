@@ -1,6 +1,6 @@
 # Employee Management System Application
 
-Welcome to the Employee Management System (EMS) repository! This Java Spring Boot application was developed by Group 6 members of the Software Engineering track at First Bank Tech Academy as part of our program.
+Welcome to the Employee Management System (EMS) repository! This Java Spring Boot application was developed by **Group 6 members** of the Software Engineering track at First Bank Tech Academy as part of our program.
 
 ![Image of First Bank]([https://octodex.github.com/images/yaktocat.png](https://upload.wikimedia.org/wikipedia/en/6/62/First_Bank_of_Nigeria_logo.png))
 
@@ -14,15 +14,16 @@ The project follows an Object-Oriented Approach, leveraging the powerful concept
 
 ## Instructor
 
-Mr. Azeez Saliu, our esteemed instructor, provided guidance and support throughout the learning process.
+**Mr. Azeez Saliu**, our esteemed instructor, provided guidance and support throughout the learning process.
 
 ## Contributors
 
-- Oluchi Ruth Alika
-- Olaoluwa Samuel Akande
-- Oyinlola Oluwafemi Adepitan
-- Charles Eboche Adah
-- Oluwadamilola Adedamola Adefihan
+- **Oluchi Ruth Alika**
+- **Olaoluwa Samuel Akande**
+- **Oyinlola Oluwafemi Adepitan**
+- **Charles Eboche Adah**
+- **Victor Faith Omanoye**
+- **Oluwadamilola Adedamola Adefihan**
 
 ### Packages and Dependencies
 
